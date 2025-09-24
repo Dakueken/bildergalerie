@@ -24,12 +24,20 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Bilder Gallerie")),
+        appBar: AppBar(
+          backgroundColor: Colors.teal,
+          toolbarHeight: 100,
+          title: Text(
+            "Bilder Gallerie",
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
+          ),
+        ),
         body: <Widget>[Gallery(), AboutMe()][currentPageIndex],
         bottomNavigationBar: NavigationBar(
           selectedIndex: currentPageIndex,
           destinations: destinations,
           backgroundColor: Colors.teal,
+          indicatorColor: Colors.tealAccent,
           onDestinationSelected: (int index) {
             setState(() {
               currentPageIndex = index;
