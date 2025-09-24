@@ -6,16 +6,36 @@ void main() {
   runApp(MainApp());
 }
 
-class MainApp extends StatelessWidget {
-  MainApp({super.key});
-  List<Widget> destinations = [Gallery(), AboutMe()];
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  int currentPageIndex = 0;
+  final List<Widget> destinations = [
+    NavigationDestination(icon: Icon(Icons.collections), label: "Gallery"),
+    NavigationDestination(icon: Icon(Icons.person), label: "About Me"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Bilder Gallerie")),
-        body: Text(),
-        bottomNavigationBar: NavigationBar(destinations: destinations),
+        body: <Widget>[Gallery(), AboutMe()][currentPageIndex],
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: currentPageIndex,
+          destinations: destinations,
+          backgroundColor: Colors.teal,
+          onDestinationSelected: (int index) {
+            setState(() {
+              currentPageIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
