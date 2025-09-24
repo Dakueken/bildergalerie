@@ -1,19 +1,21 @@
+import 'package:bildergalerie/modules/aboutMe/about_me.dart';
+import 'package:bildergalerie/modules/gallery/gallery.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+  MainApp({super.key});
+  List<Widget> destinations = [Gallery(), AboutMe()];
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+        appBar: AppBar(title: Text("Bilder Gallerie")),
+        body: Text(),
+        bottomNavigationBar: NavigationBar(destinations: destinations),
       ),
     );
   }
