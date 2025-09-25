@@ -8,7 +8,10 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset("lib/shared/assets/images/kaya.jpeg"),
+        CircleAvatar(
+          radius: 150,
+          backgroundImage: AssetImage("lib/shared/assets/images/kaya.jpeg"),
+        ),
         Expanded(
           child: Column(
             children: [
