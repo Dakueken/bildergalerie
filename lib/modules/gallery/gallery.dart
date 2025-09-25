@@ -22,6 +22,7 @@ class _GalleryState extends State<Gallery> {
       padding: EdgeInsets.all(10.0),
       itemBuilder: (context, index) {
         return Stack(
+          alignment: AlignmentDirectional.bottomStart,
           children: [
             AspectRatio(
               aspectRatio: 1,
@@ -39,13 +40,10 @@ class _GalleryState extends State<Gallery> {
                 ),
               ),
             ),
-            Align(
-              alignment: AlignmentGeometry.bottomCenter,
-              child: Container(
-                color: Colors.white,
-                width: 10000,
-                child: Text(galleryData[index].imageTitle),
-              ),
+            Container(
+              color: Colors.white,
+              width: 10000,
+              child: Text(galleryData[index].imageTitle),
             ),
           ],
         );

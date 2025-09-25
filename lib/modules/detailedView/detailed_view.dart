@@ -12,7 +12,11 @@ class _DetailedViewState extends State<DetailedView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(galleryData[widget.galleryIndex].imageTitle)),
+      appBar: AppBar(
+        title: Text(galleryData[widget.galleryIndex].imageTitle),
+        backgroundColor: Colors.teal,
+        toolbarHeight: 100,
+      ),
       body: SafeArea(
         child: ListView(
           children: [
